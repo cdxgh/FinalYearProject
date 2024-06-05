@@ -45,7 +45,7 @@ Installation
 
     sh
 
-git clone https://github.com/yourusername/rental-clothing-website.git
+git clone https://github.com/cdxgh/FinalYearProject.git
 cd rental-clothing-website
 
 Backend Setup:
