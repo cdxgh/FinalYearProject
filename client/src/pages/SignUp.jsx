@@ -18,6 +18,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
+
     try {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
@@ -26,16 +28,16 @@ const SignUp = () => {
         },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
-      if (!data.success) {
-        setError(data.message);
-        setLoading(false);
-        return;
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.message || 'Sign up failed');
       }
+
       // On successful sign-up, navigate to the sign-in page
       navigate('/sign-in');
     } catch (error) {
-      setError('An error occurred. Please try again.');
+      setError(error.message || 'An error occurred. Please try again.');
       setLoading(false);
     }
   };
