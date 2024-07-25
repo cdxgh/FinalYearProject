@@ -1,10 +1,11 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
+import {useSelector} from "react-redux"
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const currentUser = null; // Replace this with actual user state/prop
+  const {currentUser} = useSelector((state)=>state.user); // Replace this with actual user state/prop
 
   const handleSubmit = (e) => {
     e.preventDefault();
