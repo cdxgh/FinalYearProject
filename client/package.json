@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.2.6",
     "firebase": "^10.12.4",
     "mongoose": "^8.5.1",
