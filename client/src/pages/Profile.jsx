@@ -7,6 +7,7 @@ import { updateUserStart, updateUserSuccess, updateUserFailure,
   signOutUserSuccess,
   signOutUserFailure, } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
+import {Link} from "react-router-dom";
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -171,6 +172,12 @@ const Profile = () => {
         >
           {loading ? "Loading..." : "Update"}
         </button>
+        <Link
+          className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
+          to={"/create-listing"}
+        >
+          Create Listing
+        </Link>
       </form>
       <p className="text-red-700 mt-5">{error ? error : ''}</p>
       <p className="text-green-700 mt-5">{UpdateSuccess ? "Profile updated succesfully" : " "}</p>
